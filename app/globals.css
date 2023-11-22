@@ -71,19 +71,21 @@
     opacity: 0.5;
   }
   25% {
-    transform: translate(-20vw, -10vh) rotate(360deg);
+    transform: translate(-20vw, -10vh) rotate(800deg);
     opacity: 0.5;
+    scale: 150%;
   }
   50% {
-    transform: translate(0vw, 90vh) rotate(720deg);
+    transform: translate(0vw, 80vh) rotate(1600deg);
     opacity: 0.5;
   }
   75% {
-    transform: translate(23vw, 0vh) rotate(1080deg);
+    transform: translate(23vw, 0vh) rotate(2400deg);
     opacity: 0.5;
   }
   100% {
     transform: translate(45vw, 110vh) rotate(1440deg);
     opacity: 0.5;
+    scale: 100%;
   }
 }
