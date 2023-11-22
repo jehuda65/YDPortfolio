@@ -23,23 +23,23 @@
 @keyframes fly {
   0% {
     transform: translate(50vw, 50vh);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   25% {
     transform: translate(0vw, 0vh);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   50% {
     transform: translate(-50vw, 50vh);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   75% {
     transform: translate(0vw, 90vh);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   100% {
     transform: translate(50vw, 50vh);
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 @keyframes fly2 {
@@ -61,6 +61,29 @@
   }
   100% {
     transform: translate(0vw, 110vh);
+    opacity: 0.5;
+  }
+}
+@keyframes fly3 {
+  0% {
+    transform: translate(-40vw, 100vh);
+
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(-20vw, -10vh) rotate(360deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(0vw, 90vh) rotate(720deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(23vw, 0vh) rotate(1080deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(45vw, 110vh) rotate(1440deg);
     opacity: 0.5;
   }
 }
