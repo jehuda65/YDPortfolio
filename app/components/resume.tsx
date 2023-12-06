@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Link from "next/link";
+// import { useState } from "react";
+// import Link from "next/link";
 
-import { a } from "@react-spring/web";
+// import { a } from "@react-spring/web";
 
 export default function Resume() {
   return (
