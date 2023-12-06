@@ -16,6 +16,11 @@ export default function Float() {
         src="/images/logos/react.png"
         alt=""
       />
+      {/* <img
+        className="h-44 fixed rotate-6 animate-[fly3_15s_linear_infinite]"
+        src="/images/logos/react.png"
+        alt=""
+      /> */}
     </>
   );
 }
