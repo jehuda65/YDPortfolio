@@ -33,21 +33,21 @@ const Clock: React.FC<ClockProps> = () => {
     >
       <div className="hour absolute">
         <div
-          className="hr w-[120px] h-[130px] flex justify-center rounded-[50%] before:content-[''] before:absolute before:w-[5px] before:h-[70px] before:bg-[#ff105e] before:z-10 before:rounded-t-2xl before:shadow-pink-500 before:shadow"
+          className="hr w-[120px] h-[12vw] max-h-[130px] flex justify-center rounded-[50%] before:content-[''] before:absolute before:w-[5px] before:h-[6.5vw] before:max-h-[60px] before:bg-[#ff105e] before:z-10 before:rounded-t-2xl before:shadow-pink-500 before:shadow"
           id="hr"
           style={{ transform: `rotateZ(${time.hours + time.minutes / 12}deg)` }}
         ></div>
       </div>
       <div className="min absolute">
         <div
-          className="mn h-[150px] flex justify-center rounded-[30%] before:content-[''] before:absolute before:w-[3px] before:h-[80px] before:bg-[#afafaf] before:z-[11] before:rounded-t-full before:shadow-white before:shadow-md"
+          className="mn h-[15vw] max-h-[150px] flex justify-center rounded-[30%] before:content-[''] before:absolute before:w-[3px] before:h-[8vw] before:max-h-[80px] before:bg-[#afafaf] before:z-[11] before:rounded-t-full before:shadow-white before:shadow-md"
           id="mn"
           style={{ transform: `rotateZ(${time.minutes}deg)` }}
         ></div>
       </div>
       <div className="sec absolute">
         <div
-          className="sc w-[100px] h-[180px] flex justify-center rounded-[50%] before:content-[''] before:absolute before:w-[2px] before:h-[110px] before:bg-[#fff] before:z-[12] before:rounded-t "
+          className="sc w-[100px] h-[14vw] flex justify-center rounded-[50%] before:content-[''] before:absolute before:w-[2px] before:h-[7vw] before:bg-[#fff] before:z-[12] before:rounded-t "
           id="sc"
           style={{ transform: `rotateZ(${time.seconds}deg)` }}
         ></div>
