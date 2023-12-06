@@ -19,7 +19,7 @@ export default function Home() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const moveCursor = (e) => {
+    const moveCursor = (e: any) => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
     };
