@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    background-image: url("/images/mesh-grad.png");
+    background-image: url("/images/meshgrad.png");
   }
 }
 

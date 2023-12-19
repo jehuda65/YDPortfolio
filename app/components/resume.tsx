@@ -13,7 +13,7 @@ export default function Resume() {
         <div className="bg-gradient-to-b from-gray-800 via-gray-500 rounded-t-2xl group-hover:bg-none">
           <div className=" to-white px-10 py-6 rounded-3xl  ">
             <p className="font-extrabold text-2xl text-white font-['arial'] group-hover:translate-y-[14vh]  duration-300">
-              My CV
+              About Me
             </p>
             <p className="text-gray-200 font-['arial'] hidden group-hover:block translate-y-[15vh] animate-pulse">
               (Download PDF)

@@ -29,7 +29,7 @@ const Clock: React.FC<ClockProps> = () => {
   return (
     <div
       className="clock bg-gray-900 bg-opacity-20 w-[22vw] h-[22vw] max-w-[250px] max-h-[250px] flex justify-center items-center bg-[url('/images/clock.png')] 
-    bg-cover border-2 border-[#3e3311] rounded-[50%] before:content-[''] before:absolute before:w-[15px] before:h-[15px] before:bg-gray-200 before:shadow before:shadow-gray-700 before:rounded-full before:z-[10000]"
+    bg-cover border-2 border-[#3e3311] rounded-[50%] before:content-[''] before:absolute before:w-[15px] before:h-[15px] before:bg-gray-200 before:shadow before:shadow-gray-700 before:rounded-full before:z-[40]"
     >
       <div className="hour absolute">
         <div

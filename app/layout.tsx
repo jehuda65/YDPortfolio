@@ -4,9 +4,14 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+<link rel="icon" href="favicon.ico" />;
+
 export const metadata: Metadata = {
   title: "Yehudah D",
   description: "My portfolio",
+  icons: {
+    icon: "/images/logos/favicon.ico",
+  },
 };
 
 export default function RootLayout({
