@@ -24,20 +24,22 @@ export default function WebsitesOpen() {
             <div>
               <div className="flex">
                 <div className="basis-2/5">
-                  <Image
-                    src="/images/suzi.png"
-                    alt="anotherPic"
-                    width={400}
-                    height={100}
-                    className="block  mx-auto"
-                  />
+                  <a href="https://www.suziwinecoaching.com">
+                    <Image
+                      src="/images/suzi.png"
+                      alt="anotherPic"
+                      width={350}
+                      height={100}
+                      className="block rounded shadow-lg shadow-zinc-800 hover:mix-blend-luminosity duration-1000 mx-auto"
+                    />
+                  </a>
                 </div>
                 <div className="leading-10 basis-3/5 text-white md:pl-5 md:pr-20">
                   <p>
                     This is a website I created for a client of mine. It was
                     built in Remix with tailwindcss for styling. I also made
-                    user of mailerlite's developer API for integrating email
-                    marketing.
+                    user of mailerlite&apos;s developer API for integrating
+                    email marketing.
                   </p>
                 </div>
               </div>

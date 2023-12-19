@@ -59,8 +59,8 @@ export default function AboutOpen() {
                 </div>
                 <div className="leading-10 basis-3/5">
                   <p>
-                    Hi, I'm Yehudah, an aspiring Web Developer looking to expand
-                    my skillset and learn through doing.
+                    Hi, I&apos;m Yehudah, an aspiring Web Developer looking to
+                    expand my skillset and learn through doing.
                   </p>
                 </div>
               </div>
