@@ -76,6 +76,15 @@ export default function ArtOpen() {
                   className="block h-[79vh] mx-auto"
                 />
               </SwiperSlide>
+              <SwiperSlide className="bg-center bg-cover w-[300px] h-[300px]">
+                <Image
+                  src="/images/moshe.jpg"
+                  alt="anotherPic"
+                  width={430}
+                  height={300}
+                  className="block h-[79vh] mx-auto"
+                />
+              </SwiperSlide>
             </Swiper>
           </div>
         </div>

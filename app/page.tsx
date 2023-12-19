@@ -5,7 +5,7 @@ import Art from "./components/art";
 import Clock from "./components/clock";
 import Float from "./components/float";
 // import Ripple from "./components/newTestRipple";
-import Resume from "./components/resume";
+
 // import WeatherComponent from "./components/weather";
 import Websites from "./components/websites";
 import ArtOpen from "./components/artOpen";
@@ -13,6 +13,9 @@ import ArtOpen from "./components/artOpen";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 import * as Dialog from "@radix-ui/react-dialog";
+import About from "./components/about";
+import AboutOpen from "./components/aboutOpen";
+import WebsitesOpen from "./components/websitesOpen";
 
 export default function Home() {
   const cursorX = useMotionValue(-100);
@@ -101,9 +104,23 @@ export default function Home() {
               </Dialog.Portal>
             </Dialog.Root>
 
-            <Resume />
+            <Dialog.Root>
+              <Dialog.Trigger className="cursor-none">
+                <About />
+              </Dialog.Trigger>
+              <Dialog.Portal>
+                <AboutOpen />
+              </Dialog.Portal>
+            </Dialog.Root>
 
-            <Websites />
+            <Dialog.Root>
+              <Dialog.Trigger className="cursor-none">
+                <Websites />
+              </Dialog.Trigger>
+              <Dialog.Portal>
+                <WebsitesOpen />
+              </Dialog.Portal>
+            </Dialog.Root>
 
             {/* <Ripple /> */}
           </div>
