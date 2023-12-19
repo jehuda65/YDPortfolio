@@ -99,7 +99,7 @@ export default function Home() {
               <Dialog.Trigger className="cursor-none">
                 <Art />
               </Dialog.Trigger>
-              <Dialog.Portal className="overflow-hidden">
+              <Dialog.Portal>
                 <ArtOpen />
               </Dialog.Portal>
             </Dialog.Root>
