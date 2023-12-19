@@ -12,7 +12,7 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 export default function ArtOpen() {
   return (
     <>
-      <div className="absolute left-0 top-0 bg-gray-800 bg-opacity-40 backdrop-blur-sm z-50  h-full w-full">
+      <div className="absolute left-0 top-0 bg-gray-800 bg-opacity-40 backdrop-blur-sm z-50 h-screen w-full">
         <Dialog.Close asChild>
           <button
             className="rounded-full h-20 w-20 inline-flex items-center justify-center text-amber-400 hover:text-zinc-200 duration-300 absolute top-2.5 right-6"

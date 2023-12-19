@@ -1,5 +1,6 @@
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as Dialog from "@radix-ui/react-dialog";
+import Image from "next/image";
 
 export default function WebsitesOpen() {
   return (
@@ -14,7 +15,34 @@ export default function WebsitesOpen() {
           </button>
         </Dialog.Close>
         <div className="absolute top-[10%] left-[10%] h-[80vh] w-[80vw] rounded-lg  bg-gradient-to-tr from-amber-400 to-zinc-400 p-1 backdrop-blur-lg">
-          <div className="bg-zinc-800 bg-opacity-80 h-full rounded-md flex items-center justify-center"></div>
+          <div className="bg-zinc-800 bg-opacity-80 h-full rounded-md flex flex-col items-center ">
+            <div>
+              <p className="text-amber-300 text-3xl font-extrabold py-10">
+                My Websites
+              </p>
+            </div>
+            <div>
+              <div className="flex">
+                <div className="basis-2/5">
+                  <Image
+                    src="/images/suzi.png"
+                    alt="anotherPic"
+                    width={400}
+                    height={100}
+                    className="block  mx-auto"
+                  />
+                </div>
+                <div className="leading-10 basis-3/5 text-white md:pl-5 md:pr-20">
+                  <p>
+                    This is a website I created for a client of mine. It was
+                    built in Remix with tailwindcss for styling. I also made
+                    user of mailerlite's developer API for integrating email
+                    marketing.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
