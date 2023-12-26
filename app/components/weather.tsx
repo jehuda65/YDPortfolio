@@ -1,76 +1,87 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import moment from "moment";
 
-// const WeatherComponent = () => {
-//   const [weatherData, setWeatherData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+const WeatherComponent = () => {
+  const [lat, setLat] = useState<number | null>(null);
+  const [long, setLong] = useState<number | null>(null);
+  const [data, setData] = useState<any>(null);
 
-//   useEffect(() => {
-//     const fetchWeatherData = async () => {
-//       try {
-//         // Get user's location using Geolocation API
-//         navigator.geolocation.getCurrentPosition(
-//           async (position) => {
-//             const { latitude, longitude } = position.coords;
-//             const apiKey = "5deb2e2521mshd8e2fa707785629p1628fdjsn9f96ce4ee9ba"; // Replace with your Dark Sky API key
-//             const url = `https://dark-sky.p.rapidapi.com/${latitude},${longitude}?units=auto&lang=en`;
+  useEffect(() => {
+    const fetchData = async () => {
+      navigator.geolocation.getCurrentPosition(async function (position) {
+        setLat(position.coords.latitude);
+        setLong(position.coords.longitude);
+      });
 
-//             const options = {
-//               method: "GET",
-//               headers: {
-//                 "X-RapidAPI-Key": apiKey,
-//                 "X-RapidAPI-Host": "dark-sky.p.rapidapi.com",
-//               },
-//             };
+      await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=a1a3a6d8fa1c3f9ac94900bb06abbfd8`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setData(result);
+          console.log(result);
+        });
+    };
+    fetchData();
+  }, [lat, long]);
 
-//             const response = await fetch(url, options);
+  const refresh = () => {
+    window.location.reload();
+  };
 
-//             if (!response.ok) {
-//               throw new Error(`HTTP error! Status: ${response.status}`);
-//             }
+  //
+  // Render different visuals based on weatherData
+  return (
+    <div className="bg-white bg-opacity-20 p-2 rounded-lg">
+      <div>
+        <div className="text-base text-left">
+          {data ? (
+            <>
+              <div className="flex pb-2 gap-2">
+                <button
+                  className="basis-1/4 text-center text-sm bg-zinc-200 text-zinc-800 rounded-md cursor-none hover:bg-zinc-400 duration-300"
+                  onClick={refresh}
+                >
+                  Refresh
+                </button>
+                <p className="font-bold text-amber-400 basis-1/2 text-center">
+                  Location: {data.name}
+                </p>
+              </div>
 
-//             const result = await response.json();
-//             setWeatherData(result);
-//             setLoading(false);
-//           },
-//           (error) => {
-//             console.error("Error getting user location:", error);
-//             setError("Error getting user location");
-//             setLoading(false);
-//           }
-//         );
-//       } catch (error) {
-//         console.error("Error fetching weather data:", error);
-//         setError("Error fetching weather data");
-//         setLoading(false);
-//       }
-//     };
+              <p>
+                {moment().format("dddd")} {moment().format("LL")}
+              </p>
 
-//     fetchWeatherData();
-//   }, []);
+              {/* {<p> {data.weather[0].description}</p>} */}
+              {data.main && <p>Temperature: {data.main.temp}&deg;F</p>}
+              <div className="flex text-xs text-center pt-2">
+                {" "}
+                {data.sys && (
+                  <p className="font-bold text-zinc-800 bg-amber-400 rounded-l-md px-2 pb-0.5">
+                    Sunrise: <br />
+                    <p>
+                      {new Date(data.sys.sunrise * 1000).toLocaleString(
+                        "en-IN"
+                      )}
+                    </p>
+                  </p>
+                )}
+                {data.sys && (
+                  <p className="text-zinc-200 font-bold bg-cyan-800 rounded-r-md px-2 pb-0.5">
+                    Sunset: <br />
+                    {new Date(data.sys.sunset * 1000).toLocaleString("en-IN")}
+                  </p>
+                )}
+              </div>
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (error) {
-//     return <div>{error}</div>;
-//   }
-
-//   // Render different visuals based on weatherData
-//   return (
-//     <div>
-//       <h1>Weather Component</h1>
-//       {/* Add your logic to display different visuals based on weatherData */}
-//       {weatherData && (
-//         <div>
-//           <p>Temperature: {weatherData.currently.temperature}°C</p>
-//           <p>Summary: {weatherData.currently.summary}</p>
-//           {/* Add more visuals based on weather conditions */}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default WeatherComponent;
+export default WeatherComponent;

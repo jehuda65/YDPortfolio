@@ -24,7 +24,7 @@ const sidebarItems = [
     icon: BsPeople,
   },
   {
-    name: "Mails",
+    name: "Mail",
     href: "/",
     icon: FiMail,
   },
@@ -86,9 +86,9 @@ export default function Sidebar() {
             <li className="sidebar__item" key={name}>
               <Link
                 href={href}
-                className="sidebar__link cursor-none inline-block text-[1rem] text-black px-[0.8rem] py-4 w-full bg-[#f3f4f6] hover:bg-zinc-800 hover:bg-opacity-45 duration-300 hover:text-amber-400 border-2 border-amber-400 mb-4 rounded-[0.8rem]"
+                className="sidebar__link cursor-none flex text-[1rem] text-black px-[0.8rem] py-4 w-full bg-[#f3f4f6] hover:bg-zinc-800 hover:bg-opacity-45 duration-300 hover:text-amber-400 border-2 border-amber-400 mb-4 rounded-[0.8rem]"
               >
-                <span className="sidebar_icon text-[1.2rem] inline-block">
+                <span className="sidebar_icon text-[1.5rem] inline-block">
                   <Icon />
                 </span>
                 <span

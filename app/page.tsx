@@ -13,6 +13,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import Sidebar from "./components/sidebar";
 
 import Options from "./components/options";
+import WeatherComponent from "./components/weather";
 
 export default function Home() {
   const cursorX = useMotionValue(-100);
@@ -34,12 +35,6 @@ export default function Home() {
       window.removeEventListener("mousemove", moveCursor);
     };
   }, []);
-
-  const [artShowing, setArtShowing] = useState(false);
-
-  const handleArtClick = () => {
-    setArtShowing(true);
-  };
 
   return (
     <>
@@ -66,11 +61,12 @@ export default function Home() {
         <Float />
         <div className="z-10  flex-col font-mono text-sm lg:flex">
           <div className="flex flex-col md:flex-row">
-            <div className="text-gray-300 text-2xl pt-10 text-center">
+            <div className="text-gray-300 text-2xl pt-10 text-center flex flex-col place-content-between">
               Yehudah Davidson
+              <WeatherComponent />
             </div>
+
             <div className="mx-auto pt-10 ">
-              {/* <WeatherComponent /> */}
               <Clock />
             </div>
             <div className="text-amber-300 text-2xl p-10 text-center">

@@ -131,3 +131,37 @@
     transform: translate(-50%, -50%) scale(1);
   }
 }
+@keyframes fadeInWeb {
+  from {
+    opacity: 0;
+    transform: translate(30%, 30%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeInAbout {
+  from {
+    opacity: 0;
+    transform: translate(0%, 30%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeInArt {
+  from {
+    opacity: 0;
+    transform: translate(-30%, 30%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dialog-content::-webkit-scrollbar {
+  display: none;
+}
