@@ -4,9 +4,9 @@ import "./globals.css";
 import { SidebarProvider } from "./components/sidebarContext";
 // import { Component } from "react";
 // import type { AppProps } from "next/app";
-import { useThemeContext } from "./theme/themeContextProvider";
+// import { useThemeContext } from "./theme/themeContextProvider";
 import { ThemeProvider } from "@emotion/react";
-import theme from "./theme/theme";
+// import theme from "./theme/theme";
 import { CssBaseline } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
