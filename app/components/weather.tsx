@@ -26,7 +26,7 @@ const WeatherComponent = () => {
   }, [lat, long]);
 
   const refresh = () => {
-    window.location.reload();
+    location.reload();
   };
 
   //
@@ -37,7 +37,7 @@ const WeatherComponent = () => {
         <div className="text-base text-left">
           {data ? (
             <>
-              <div className="flex pb-2 gap-2">
+              <div className="flex p-2 gap-2 rounded-t-md">
                 <button
                   className="basis-1/4 text-center text-sm bg-zinc-200 text-zinc-800 rounded-md cursor-none hover:bg-zinc-400 duration-300"
                   onClick={refresh}

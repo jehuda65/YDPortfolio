@@ -14,6 +14,19 @@ import Sidebar from "./components/sidebar";
 
 import Options from "./components/options";
 import WeatherComponent from "./components/weather";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  IconButton,
+  Switch,
+  Typography,
+} from "@mui/material";
+
+import { DotIcon, SunIcon } from "@radix-ui/react-icons";
 
 export default function Home() {
   const cursorX = useMotionValue(-100);
@@ -36,66 +49,95 @@ export default function Home() {
     };
   }, []);
 
+  const [toggleDarkMode, setToggleDarkMode] = useState(true);
+
+  const toggleDarkTheme = () => {
+    setToggleDarkMode(!toggleDarkMode);
+  };
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: toggleDarkMode ? "dark" : "light",
+      primary: {
+        main: "#ccb71b",
+      },
+      secondary: {
+        main: "#f48fb1",
+      },
+    },
+  });
+
   return (
     <>
-      <main className="cursor-none flex min-h-screen justify-center bg-[url('/images/meshgrad.png')] bg-cover px-8">
-        {/* <Image
-        ref=""
-        height="100px"
-        width="100px"
-        loading=""
-        alt=""
-        src=""
-        srcSet=""
-      /> */}
-        <motion.div
-          className="fixed z-[2000] mix-blend-difference pointer-events-none  left-0 top-0 w-[32px] h-[32px] rounded-2xl bg-white"
-          style={{
-            translateX: cursorXSpring,
-            translateY: cursorYSpring,
-          }}
-        />
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
 
-        <Sidebar />
+        <main className="cursor-none flex min-h-screen justify-center bg-[url('/images/meshgrad.png')] bg-cover px-8">
+          <motion.div
+            className="fixed z-[2000] mix-blend-difference pointer-events-none  left-0 top-0 w-[32px] h-[32px] rounded-2xl bg-white"
+            style={{
+              translateX: cursorXSpring,
+              translateY: cursorYSpring,
+            }}
+          />
 
-        <Float />
-        <div className="z-10  flex-col font-mono text-sm lg:flex">
-          <div className="flex flex-col md:flex-row">
-            <div className="text-gray-300 text-2xl pt-10 text-center flex flex-col place-content-between">
-              Yehudah Davidson
-              <WeatherComponent />
-            </div>
+          <Sidebar />
 
-            <div className="mx-auto pt-10 ">
-              <Clock />
+          <Float />
+          <div className="z-10  flex-col font-mono text-sm lg:flex">
+            <div className="flex flex-col md:flex-row">
+              <div className="text-gray-300 text-2xl pt-10 text-center flex flex-col place-content-between">
+                Yehudah Davidson
+                <WeatherComponent />
+              </div>
+
+              <div className="mx-auto pt-10 ">
+                <Clock />
+              </div>
+              <div className="text-amber-300 text-2xl p-10 text-center">
+                Web <span className="text-pink-600">Developer</span>
+                <div className="flex text-zinc-300 text-xs items-center">
+                  <h2>Toggle Dark Mode:</h2>
+                  <Switch checked={toggleDarkMode} onChange={toggleDarkTheme} />
+                </div>
+              </div>
             </div>
-            <div className="text-amber-300 text-2xl p-10 text-center">
-              Web <span className="text-pink-600">Developer</span>
-            </div>
-            {/* <div>
-              <button>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  fill="currentColor"
-                  className="bi bi-list-nested text-zinc-100  my-10 hover:bg-white hover:text-amber-400 rounded-xl hover:bg-opacity-20 absolute opacity-80 top-0 right-7 md:right-0 md:relative"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"
-                  />
-                </svg>
-              </button>
-            </div> */}
+            <Options />
+
+            <Card
+              sx={{
+                width: "30%",
+                borderRadius: 3,
+                padding: 1,
+              }}
+              className={`bg-opacity-40 backdrop-blur-sm ${
+                toggleDarkMode
+                  ? "bg-gradient-to-br from-zinc-800/50 to-zinc-700"
+                  : "bg-amber-400"
+              }`}
+            >
+              <CardContent>
+                <CardMedia
+                  sx={{ height: 180, borderRadius: 3 }}
+                  image="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg"
+                  title="semaphore"
+                />
+                <Typography variant="h4" component="div" sx={{ marginTop: 3 }}>
+                  Programming Blogs
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  by Semaphore
+                </Typography>
+                <Typography variant="body1">
+                  Checkout the latest blogs on Semaphore. Semaphore provides you
+                  the best CI/CD solution for high-performance engineering
+                  teams.
+                </Typography>
+              </CardContent>
+            </Card>
           </div>
-          <Options />
-
-          {/* <Ripple /> */}
-          {/* </div> */}
-        </div>
-      </main>
+        </main>
+      </ThemeProvider>
     </>
   );
 }
